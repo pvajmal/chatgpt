@@ -37,7 +37,7 @@ download_button = st.button("Download file")
 
 df = pd.DataFrame()
 
-df.to_csv('data.csv')
+df.to_csv('aju.csv')
 # Set the file to be downloaded
 file = 'data.csv'
 
