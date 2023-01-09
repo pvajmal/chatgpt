@@ -36,10 +36,11 @@ st.markdown(f"Your name is **{os.getcwd(), os.listdir()}**")
 download_button = st.button("Download file")
 
 df = pd.DataFrame()
+df['Ajmal'] = 'name'
 
 df.to_csv('aju.csv')
 # Set the file to be downloaded
-file = '/app/chatgpt/data.csv'
+file = '/app/chatgpt/aju.csv'
 
 with open(file) as f:
    st.download_button(file, f)  # Defaults to 'text/plain'
