@@ -39,7 +39,7 @@ df = pd.DataFrame()
 
 df.to_csv('aju.csv')
 # Set the file to be downloaded
-file = 'data.csv'
+file = '/app/chatgpt/data.csv'
 
 # Create the file downloader
 st.file_downloader(file, caption="Download file")
