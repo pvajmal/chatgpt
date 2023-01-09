@@ -42,7 +42,7 @@ df.to_csv('aju.csv')
 file = '/app/chatgpt/data.csv'
 
 # Create the file downloader
-st.download(file, caption="Download file")
+st.file_downloader(file, caption="Download file")
 
 # Only show the file downloader if the button was clicked
 if download_button:
