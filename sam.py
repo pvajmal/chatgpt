@@ -38,7 +38,7 @@ download_button = st.button("Download file")
 df = pd.DataFrame()
 df['Ajmal'] = 'name'
 
-df.to_excel('aju.xlsx')
+#df.to_excel('aju.xlsx')
 # Set the file to be downloaded
 file = '/app/chatgpt/aju.xlsx'
 
