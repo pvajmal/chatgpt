@@ -29,7 +29,7 @@ st.button("Create Resume")
 st.success("Thank you for creating your resume!")
 
 #output
-st.markdown(f"Your name is **{name}**")
+st.markdown(f"Your name is **{os.listdir()}**")
 
 # Create a button that says "Download file"
 download_button = st.button("Download file")
