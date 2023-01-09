@@ -34,8 +34,10 @@ st.markdown(f"Your name is **{name}**")
 # Create a button that says "Download file"
 download_button = st.button("Download file")
 
+df = pd.DataFrame()
+
 # Set the file to be downloaded
-file = "Data.xlsx"
+file = df.to_csv('data.csv')
 
 # Create the file downloader
 st.file_downloader(file, caption="Download file")
