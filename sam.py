@@ -38,12 +38,11 @@ download_button = st.button("Download file")
 df = pd.DataFrame()
 df['Ajmal'] = 'name'
 
-df.to_csv('aju.csv')
+df.to_excel('aju.xlsx')
 # Set the file to be downloaded
-file = '/app/chatgpt/aju.csv'
+file = '/app/chatgpt/aju.xlsx'
 
-with open(file) as f:
-   st.download_button(file, f)  # Defaults to 'text/plain'
+st.download_button(file, f)  # Defaults to 'text/plain'
 
 # Only show the file downloader if the button was clicked
 if download_button:
