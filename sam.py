@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Set the page title
 st.title("Resume Builder")
@@ -34,7 +35,7 @@ st.markdown(f"Your name is **{name}**")
 download_button = st.button("Download file")
 
 # Set the file to be downloaded
-file = "data.csv"
+file = "Data.xlsx"
 
 # Create the file downloader
 st.file_downloader(file, caption="Download file")
