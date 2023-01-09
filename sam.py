@@ -42,7 +42,8 @@ df.to_excel('aju.xlsx')
 # Set the file to be downloaded
 file = '/app/chatgpt/aju.xlsx'
 
-st.download_button(file, f)  # Defaults to 'text/plain'
+with open(file) as f:
+   st.download_button(file, f)  # Defaults to 'text/plain'
 
 # Only show the file downloader if the button was clicked
 if download_button:
