@@ -26,3 +26,6 @@ st.button("Create Resume")
 
 # Display a success message
 st.success("Thank you for creating your resume!")
+
+#output
+st.header("you've entered" , name)
