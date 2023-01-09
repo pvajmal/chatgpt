@@ -40,7 +40,7 @@ df['Ajmal'] = 'name'
 
 #df.to_excel('aju.xlsx')
 # Set the file to be downloaded
-file = '/app/chatgpt/aju.xlsx'
+file = '/app/chatgpt/aju.csv'
 
 with open(file) as f:
    st.download_button(file, f)  # Defaults to 'text/plain'
