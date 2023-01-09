@@ -29,3 +29,16 @@ st.success("Thank you for creating your resume!")
 
 #output
 st.markdown(f"Your name is **{name}**")
+
+# Create a button that says "Download file"
+download_button = st.button("Download file")
+
+# Set the file to be downloaded
+file = "data.csv"
+
+# Create the file downloader
+st.file_downloader(file, caption="Download file")
+
+# Only show the file downloader if the button was clicked
+if download_button:
+    st.markdown("Click the button to download the file.")
