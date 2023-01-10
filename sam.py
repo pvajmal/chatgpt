@@ -58,5 +58,5 @@ file = current_dir/'Expenses.xlsx'
 if download_button:
     
     st.write("Click the link below to download the file")
-    st.markdown("[Download file](" + file + ")")
+    st.markdown("[Download file](" + str(file) + ")")
 st.markdown(f"Columns NAME **{pd.read_excel(file)['Name']}**")
