@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from data import CreateData
-
+import matplotlib.pyplot as plt
 
 # Set the page title
 st.title("Expense calculator")
@@ -47,7 +47,7 @@ if proceed:
    expense2 = addNew.datacreater(name, selected_option, amount)
    expensefinal = pd.concat([expense1, expense2])
    expensefinal.to_excel('Expenses.xlsx', index = False)
-expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
+expenset = pd.read_excel('/app/chatgpt/Expenses.xlsx')
 
 # Set the file to be downloaded
 file = '/app/chatgpt/Expenses.xlsx'
@@ -60,3 +60,5 @@ if download_button:
     st.write("Click the link below to download the file")
     st.markdown("[Download file](" + file + ")")
 
+plt.plot(expenset['Name'], expenset['Amount'])
+st.pyplot()
