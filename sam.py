@@ -49,7 +49,7 @@ if proceed:
 expense1 = pd.read_excel(current_dir/'/Expenses.xlsx')
 #st.markdown(f"Your name is **{expense1.shape[1]}**")
 # Set the file to be downloaded
-file = current_dir/Expenses.xlsx'
+file = current_dir/'Expenses.xlsx'
 
 
 # Only show the file downloader if the button was clicked
