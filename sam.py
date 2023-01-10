@@ -22,7 +22,7 @@ options = ["Food", "Entertainment", "Dress"]
 selected_option = st.selectbox("Select an option:", options,index=1)
 
 # Add input fields for amount and description
-amount = st.number_input("Amount", value=0.0, step=0.01)
+amount = st.number_input("Amount", value=0, step=10)
 description = st.text_input("Description", "")
 
 # Add image
