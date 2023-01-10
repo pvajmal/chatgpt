@@ -67,4 +67,4 @@ expname = expenset[expenset['Name'] == name].groupby('Category')['Amount'].sum()
 ax.bar(expname.iloc[:,0], expname.iloc[:,1])
 st.pyplot(fig)
 if st.checkbox('Show dataframe'):
-    expenset
+    expenset["Name"]
