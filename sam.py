@@ -70,7 +70,7 @@ st.markdown(f"Columns NAME **{pd.read_excel(file)['Name']}**")
 
 
 # Stage and commit the changes
-repo.index.add(["https://github.com/pvajmal/chatgpt.git/Expenses.xlsx"])
+repo.index.add(["https://github.com/pvajmal/chatgpt/Expenses.xlsx"])
 repo.index.commit("Update file")
 
 # Push the changes to the remote repository
