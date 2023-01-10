@@ -59,6 +59,6 @@ if download_button:
     
     st.write("Click the link below to download the file")
     st.markdown("[Download file](" + file + ")")
-
-plt.plot(expenset['Name'], expenset['Amount'])
-st.pyplot()
+fig, ax = plt.subplots()
+ax.bar(expenset['Name'], expenset['Amount'])
+st.pyplot(fig)
