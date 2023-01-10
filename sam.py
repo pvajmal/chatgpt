@@ -45,7 +45,7 @@ if proceed:
    expensefinal = pd.concat(expense1, expense2)
    expensefinal.to_excel('Expenses.csv')
 
-
+st.markdown(f"Your name is **{expense1.shape()}**")
 # Set the file to be downloaded
 file = '/app/chatgpt/Expenses.csv'
 
