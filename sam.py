@@ -11,7 +11,7 @@ st.title("Expense calculator")
 st.header("Welcome to Expense calculator!")
 
 # Add a subheader
-st.subheader("Enter your information below to create your Expense calculator")
+st.subheader("Enter your information below to add your Expense")
 
 # Add a text input field for the user's name
 names = ['Ajmal','Jouhar']
@@ -60,5 +60,8 @@ if download_button:
     st.write("Click the link below to download the file")
     st.markdown("[Download file](" + file + ")")
 fig, ax = plt.subplots()
+
+expenset = expenset.groupby('Category').mean()
+
 ax.bar(expenset[expenset['Name'] == name]['Category'], expenset[expenset['Name'] == name]['Amount'])
 st.pyplot(fig)
