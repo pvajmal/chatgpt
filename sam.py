@@ -69,4 +69,4 @@ def download_file(path):
 
 if download_button:
     
-    st.markdown(f"Excel file created. Click the link to download it. [Download](./download/Expenses.xlsx)")
+    st.markdown(f"Excel file created. Click the link to download it. [Download](/app/chatgpt/Expenses.xlsx)")
