@@ -54,12 +54,10 @@ file = '/app/chatgpt/Expenses.xlsx'
    st.download_button(file, f)  # Defaults to "text/plain"'''
 
 # Only show the file downloader if the button was clicked
-'''if download_button:
-    st.markdown('Exporting current data to Excel...')
-    webbrowser.open("/app/chatgpt/Expenses.xlsx")
-    st.markdown("Excel file created. Click the link to download it. [Download](/app/chatgpt/Expenses.xlsx)")
-'''
+
 if download_button:
     
     st.write("Click the link below to download the file")
     st.markdown("[Download file](" + file + ")")
+
+'''{pd.read_excel(file)}'''
