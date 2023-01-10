@@ -3,68 +3,61 @@ import pandas as pd
 import os
 from data import CreateData
 import matplotlib.pyplot as plt
+from datetime import date
+import seaborn as sns
 
-# Set the page title
-st.title("Expense calculator")
+
+st.set_page_config(page_title="Expense Calculator", page_icon=":moneybag:", layout="wide")
+st.markdown("<link rel='stylesheet' type='text/css' href='style.css'>", unsafe_allow_html=True)
 
 # Add a header
 st.header("Welcome to Expense calculator!")
-
-# Add a subheader
 st.subheader("Enter your information below to add your Expense")
 
-# Add a text input field for the user's name
+
+
+# Add date picker
+date_expense = st.date_input("Enter the date of expense")
+
 names = ['Ajmal','Jouhar']
-name = st.selectbox("Select an option:", names,index=1)
+name = st.selectbox("Select User:", names,index=1)
 options = ["Food", "Entertainment", "Dress"]
 selected_option = st.selectbox("Select an option:", options,index=1)
 
-st.write("You selected:", selected_option)
-# Add a text input field for the user's email
-amount = st.text_input("Amount", "")
+amount = st.number_input("Amount", value=0.0, step=0.01)
+description = st.text_input("Description", "")
 
-# Add a text input field for the user's job title
-#job_title = st.text_input("Job Title", "Enter your job title here")
+# Add image
+#st.image('logo.png')
 
-# Add a text area for the user's job description
-#job_description = st.text_area("Job Description", "Enter your job description here")
+# Add Sidebar
+st.sidebar.header("Filter by")
+filter_by_name = st.sidebar.checkbox("Name")
+filter_by_date = st.sidebar.checkbox("Date")
 
-# Add a button to submit the form
-proceed = st.button("Add expense")
+if st.button("Add expense"):
+    expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
+    addNew = CreateData()
+    expense2 = addNew.datacreater(date_expense, name, selected_option, amount, description)
+    expensefinal = pd.concat([expense1,expense2], axis = 0)
+    expensefinal.to_excel('/app/chatgpt/Expenses.xlsx', index = False)
 
-# Display a success message
-if proceed:
-   st.success("Thank you for your submission!")
+if filter_by_name or filter_by_date:
+    expensefinal = pd.read_excel('/app/chatgpt/Expenses.xlsx')
+    expensefinal['Date'] = pd.to_datetime(expensefinal['Date'])
+    if filter_by_name:
+        expensefinal = expensefinal[expensefinal['Name'] == name]
+    if filter_by_date:
+        expensefinal = expensefinal[expensefinal['Date'].dt.date == date_expense]
+    st.dataframe(expensefinal)
+    if st.checkbox('Show Graph'):
+        fig, ax = plt.subplots()
+        expname = expensefinal.groupby('Category')['Amount'].sum().reset_index()
+        ax.bar(expname.iloc[:,0], expname.iloc[:,1])
+        ax.set_title("Expenses by category")
+        ax.set_xlabel("Category")
+        ax.set_ylabel("Expense amount")
 
-#output
-st.markdown(f"Your are logged as **{name}**")
+        plt.style.use("ggplot")
+        st.pyplot(fig)
 
-# Create a button that says "Download file"
-download_button = st.button("Download file")
-if proceed:
-   expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
-   addNew = CreateData()
-   expense2 = addNew.datacreater(name, selected_option, amount)
-   expensefinal = pd.concat([expense1, expense2])
-   expensefinal.to_excel('Expenses.xlsx', index = False)
-expenset = pd.read_excel('/app/chatgpt/Expenses.xlsx')
-
-# Set the file to be downloaded
-file = '/app/chatgpt/Expenses.xlsx'
-
-
-# Only show the file downloader if the button was clicked
-
-if download_button:
-    
-    st.write("Click the link below to download the file")
-    st.markdown("[Download file](" + file + ")")
-fig, ax = plt.subplots()
-
-expname = expenset[expenset['Name'] == name].groupby('Category')['Amount'].sum().reset_index()
-
-
-ax.bar(expname.iloc[:,0], expname.iloc[:,1])
-st.pyplot(fig)
-if st.checkbox('Show dataframe'):
-    expenset[expenset['Name'] == name]
