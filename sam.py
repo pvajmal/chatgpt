@@ -18,7 +18,7 @@ selected_option = st.selectbox("Select an option:", options,index=1)
 
 st.write("You selected:", selected_option)
 # Add a text input field for the user's email
-amount = st.text_input("Email", "Enter amount here")
+amount = st.text_input("Amount", "Enter amount here")
 
 # Add a text input field for the user's job title
 #job_title = st.text_input("Job Title", "Enter your job title here")
