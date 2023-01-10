@@ -55,5 +55,5 @@ file = '/app/chatgpt/Expenses.xlsx'
 # Only show the file downloader if the button was clicked
 if download_button:
     st.markdown('Exporting current data to Excel...')
-    st.download("/app/chatgpt/Expenses.xlsx")
+    os.startfile("/app/chatgpt/Expenses.xlsx")
     st.markdown('Done!')
