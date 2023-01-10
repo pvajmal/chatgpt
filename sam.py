@@ -59,14 +59,7 @@ file = '/app/chatgpt/Expenses.xlsx'
     webbrowser.open("/app/chatgpt/Expenses.xlsx")
     st.markdown("Excel file created. Click the link to download it. [Download](/app/chatgpt/Expenses.xlsx)")
 '''
-import flask
-from flask import Flask, send_from_directory
-app = Flask(__name__)
-
-@app.route('/download/<path:path>')
-def download_file(path):
-    return send_from_directory('', path, as_attachment=True)
-
 if download_button:
     
-    st.markdown(f"Excel file created. Click the link to download it. [Download](/app/chatgpt/Expenses.xlsx)")
+    st.write("Click the link below to download the file")
+    st.markdown("[Download file](" + file + ")")
