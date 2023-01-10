@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from data import CreateData
+import webbrowser
 
 # Set the page title
 st.title("Expense calculator")
@@ -55,5 +56,5 @@ file = '/app/chatgpt/Expenses.xlsx'
 # Only show the file downloader if the button was clicked
 if download_button:
     st.markdown('Exporting current data to Excel...')
-    os.startfile("/app/chatgpt/Expenses.xlsx")
+    webbrowser.open("/app/chatgpt/Expenses.xlsx")
     st.markdown('Done!')
