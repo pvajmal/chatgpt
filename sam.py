@@ -57,4 +57,4 @@ file = '/app/chatgpt/Expenses.xlsx'
 if download_button:
     st.markdown('Exporting current data to Excel...')
     webbrowser.open("/app/chatgpt/Expenses.xlsx")
-    st.markdown("Excel file created. Click the link to download it. [Download](./Expenses.xlsx)"
+    st.markdown("Excel file created. Click the link to download it. [Download](./Expenses.xlsx)")
