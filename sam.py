@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+from data import CreateData
 
 # Set the page title
 st.title("Expense calculator")
@@ -27,24 +28,26 @@ amount = st.text_input("Amount", "Enter amount here")
 #job_description = st.text_area("Job Description", "Enter your job description here")
 
 # Add a button to submit the form
-a = st.button("Add expense")
+proceed = st.button("Add expense")
 
 # Display a success message
 st.success("Thank you for your submission!")
 
 #output
-st.markdown(f"Your name is **{a}**")
+st.markdown(f"Your name is **{proceed}**")
 
 # Create a button that says "Download file"
 download_button = st.button("Download file")
+if proceed:
+   expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
+   addNew = CreateData()
+   expense2 = addNew.datacreater(name, selected_option, amount)
+   expensefinal = pd.concat(expense1, expense2)
+   expensefinal.to_excel('Expenses.xlsx')
 
-df = pd.DataFrame()
-df[name] = name
 
-
-df.to_csv('aju.csv')
 # Set the file to be downloaded
-file = '/app/chatgpt/aju.csv'
+file = '/app/chatgpt/Expenses.xlsx'
 
 with open(file) as f:
    st.download_button(file, f)  # Defaults to 'text/plain'
