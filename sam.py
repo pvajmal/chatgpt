@@ -50,7 +50,7 @@ st.markdown(f"Your name is **{expense1.shape[1]}**")
 file = '/app/chatgpt/Expenses.xlsx'
 
 '''with open(file) as f:
-   st.download_button(file, f)  # Defaults to 'text/plain''''
+   st.download_button(file, f)  # Defaults to "text/plain"'''
 
 # Only show the file downloader if the button was clicked
 if download_button:
