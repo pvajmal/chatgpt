@@ -43,7 +43,7 @@ if proceed:
    addNew = CreateData()
    expense2 = addNew.datacreater(name, selected_option, amount)
    expensefinal = pd.concat([expense1, expense2])
-   expensefinal.to_xlsx('Expenses.xlsx', index = False)
+   expensefinal.to_excel('Expenses.xlsx', index = False)
 expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
 st.markdown(f"Your name is **{expense1.shape[1]}**")
 # Set the file to be downloaded
