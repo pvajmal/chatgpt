@@ -46,7 +46,7 @@ if proceed:
    expensefinal = pd.concat([expense1, expense2])
    expensefinal.to_excel('Expenses.xlsx', index = False)
 expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
-st.markdown(f"Your name is **{expense1.shape[1]}**")
+#st.markdown(f"Your name is **{expense1.shape[1]}**")
 # Set the file to be downloaded
 file = '/app/chatgpt/Expenses.xlsx'
 
@@ -57,4 +57,4 @@ if download_button:
     
     st.write("Click the link below to download the file")
     st.markdown("[Download file](" + file + ")")
-st.markdown(f"Your name is **{pd.read_excel(file)['Name']}**")
+st.markdown(f"Columns NAME **{pd.read_excel(file)['Name']}**")
