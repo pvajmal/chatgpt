@@ -47,7 +47,7 @@ if proceed:
    expense2 = addNew.datacreater(name, selected_option, amount)
    expensefinal = pd.concat([expense1, expense2])
    expensefinal.to_excel(current_dir/'Expenses.xlsx', index = False)
-expense1 = pd.read_excel(current_dir/'/Expenses.xlsx')
+expense1 = pd.read_excel(current_dir/'Expenses.xlsx')
 #st.markdown(f"Your name is **{expense1.shape[1]}**")
 # Set the file to be downloaded
 file = current_dir/'Expenses.xlsx'
