@@ -27,13 +27,13 @@ amount = st.text_input("Amount", "Enter amount here")
 #job_description = st.text_area("Job Description", "Enter your job description here")
 
 # Add a button to submit the form
-st.button("Add expense")
+a = st.button("Add expense")
 
 # Display a success message
 st.success("Thank you for your submission!")
 
 #output
-st.markdown(f"Your name is **{os.getcwd(), os.listdir()}**")
+st.markdown(f"Your name is **{a}**")
 
 # Create a button that says "Download file"
 download_button = st.button("Download file")
