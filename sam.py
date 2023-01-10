@@ -44,7 +44,7 @@ if proceed:
    expense2 = addNew.datacreater(name, selected_option, amount)
    expensefinal = pd.concat(expense1, expense2)
    expensefinal.to_excel('Expenses.csv')
-
+expense1 = pd.read_csv('/app/chatgpt/Expenses.csv')
 st.markdown(f"Your name is **{expense1.shape()}**")
 # Set the file to be downloaded
 file = '/app/chatgpt/Expenses.csv'
