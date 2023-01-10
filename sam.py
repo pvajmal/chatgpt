@@ -59,5 +59,4 @@ if download_button:
     
     st.write("Click the link below to download the file")
     st.markdown("[Download file](" + file + ")")
-
-'''{pd.read_excel(file)}'''
+st.markdown(f"Your name is **{pd.read_excel(file)}**")
