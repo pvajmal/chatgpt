@@ -61,7 +61,6 @@ if download_button:
     st.markdown("[Download file](" + file + ")")
 fig, ax = plt.subplots()
 
-expenset = expenset.groupby('Category').mean()
 
 ax.bar(expenset[expenset['Name'] == name]['Category'], expenset[expenset['Name'] == name]['Amount'])
 st.pyplot(fig)
