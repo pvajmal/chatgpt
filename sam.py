@@ -61,6 +61,8 @@ if download_button:
     st.markdown("[Download file](" + file + ")")
 fig, ax = plt.subplots()
 
+expname = expenset[expenset['Name'] == name].groupby('Category')['Amount'].sum().reset_index()
 
-ax.bar(expenset[expenset['Name'] == name]['Category'], expenset[expenset['Name'] == name]['Amount'])
+
+ax.bar(expname.iloc[:,0], expname.iloc[:,1])
 st.pyplot(fig)
