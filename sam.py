@@ -39,15 +39,15 @@ st.markdown(f"Your name is **{proceed}**")
 # Create a button that says "Download file"
 download_button = st.button("Download file")
 if proceed:
-   expense1 = pd.read_excel('/app/chatgpt/Expenses.xlsx')
+   expense1 = pd.read_excel('/app/chatgpt/Expenses.csv')
    addNew = CreateData()
    expense2 = addNew.datacreater(name, selected_option, amount)
    expensefinal = pd.concat(expense1, expense2)
-   expensefinal.to_excel('Expenses.xlsx')
+   expensefinal.to_excel('Expenses.csv')
 
 
 # Set the file to be downloaded
-file = '/app/chatgpt/Expenses.xlsx'
+file = '/app/chatgpt/Expenses.csv'
 
 with open(file) as f:
    st.download_button(file, f)  # Defaults to 'text/plain'
