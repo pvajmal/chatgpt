@@ -6,7 +6,7 @@ import webbrowser
 from pathlib import Path
 import git
 
-repo = git.Repo("https://github.com/pvajmal/chatgpt")
+
 
 # Set the page title
 st.title("Expense calculator")
@@ -44,6 +44,7 @@ st.markdown(f"Your name is **{proceed}**")
 # Create a button that says "Download file"
 download_button = st.button("Download file")
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+repo = git.Repo(current_dir)
 if proceed:
    expense1 = pd.read_excel(current_dir/'Expenses.xlsx')
    addNew = CreateData()
@@ -69,7 +70,7 @@ st.markdown(f"Columns NAME **{pd.read_excel(file)['Name']}**")
 
 
 # Stage and commit the changes
-repo.index.add(["https://github.com/pvajmal/chatgpt/Expenses.xlsx"])
+repo.index.add([current_dir/"Expenses.xlsx"])
 repo.index.commit("Update file")
 
 # Push the changes to the remote repository
