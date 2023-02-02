@@ -16,7 +16,7 @@ st.subheader("Enter your information below to add your Expense")
 date_expense = st.date_input("Enter the date of expense")
 
 # Add options for user name and expense category
-names = ['Ajmal','Jouhar']
+names = ['Ajmal','Jouhar','Adnan']
 name = st.selectbox("Select User:", names,index=1)
 options = ["Food", "Entertainment", "Dress"]
 selected_option = st.selectbox("Select an option:", options,index=1)
